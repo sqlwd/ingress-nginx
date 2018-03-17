@@ -22,6 +22,13 @@ spec:
   loadBalancerIP: "{{ .Values.controller.service.loadBalancerIP }}"
 {{- end }}
 {{- if .Values.controller.service.loadBalancerSourceRanges }}
+  loadBalancerSourceRanges:
+{{ toYaml .Values.controller.service.loadBalancerSourceRanges | indent 4 }}
+{{- end }}
+{{- if and (ge .Capabilities.KubeVersion.Minor "7") (.Values.controller.service.externalTrafficPolicy) }}
+  externalTrafficPolicy: "{{ .Values.controller.service.externalTrafficPolicy }}"
+{{- end }}
+{{- if and (ge .Capabilities.KubeVersion.Minor "7") (.Values.controller.service.healthCheckNodePort) }}
   healthCheckNodePort: {{ .Values.controller.service.healthCheckNodePort }}
 {{- end }}
   ports:

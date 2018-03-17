@@ -4,7 +4,7 @@
 controller:
   name: controller
   image:
-    repository: 192.168.2.169/k8s-test1/nginx-ingress-controller
+    repository: sz-pg-oam-docker-hub-001.tendcloud.com/library/nginx-ingress-controller
     tag: "0.9.0-beta.15"
     pullPolicy: IfNotPresent
 
