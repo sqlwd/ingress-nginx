@@ -34,6 +34,8 @@ The command deploys nginx-ingress on the Kubernetes cluster in the default confi
 To uninstall/delete the `my-release` deployment:
 
 ```console
+
+## 1234
 $ helm delete my-release
 ```
 
